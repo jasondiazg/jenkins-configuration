@@ -1,0 +1,31 @@
+Branch indexing
+Checking out git https://gitlab.com/orion-project/orion-app.git into /var/jenkins_home/workspace/orion-app_orion-app-PLFI3H624DNQMVV3TYPMLTSSTR2BXL6QC5R7XXGBCPR3T6NGKCOA@script to read Jenkinsfile
+Cloning the remote Git repository
+Cloning repository https://gitlab.com/orion-project/orion-app.git
+ > git init /var/jenkins_home/workspace/orion-app_orion-app-PLFI3H624DNQMVV3TYPMLTSSTR2BXL6QC5R7XXGBCPR3T6NGKCOA@script # timeout=10
+Fetching upstream changes from https://gitlab.com/orion-project/orion-app.git
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials Gitlab - jasondiazg
+ > git fetch --tags --progress https://gitlab.com/orion-project/orion-app.git +refs/heads/*:refs/remotes/origin/*
+ERROR: Error cloning remote repo 'origin'
+hudson.plugins.git.GitException: Command "git fetch --tags --progress https://gitlab.com/orion-project/orion-app.git +refs/heads/*:refs/remotes/origin/*" returned status code 128:
+stdout: 
+stderr: remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://gitlab.com/orion-project/orion-app.git/'
+
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandIn(CliGitAPIImpl.java:2002)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.launchCommandWithCredentials(CliGitAPIImpl.java:1721)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl.access$300(CliGitAPIImpl.java:72)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$1.execute(CliGitAPIImpl.java:405)
+	at org.jenkinsci.plugins.gitclient.CliGitAPIImpl$2.execute(CliGitAPIImpl.java:614)
+	at hudson.plugins.git.GitSCM.retrieveChanges(GitSCM.java:1146)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1186)
+	at org.jenkinsci.plugins.workflow.steps.scm.SCMStep.checkout(SCMStep.java:113)
+	at org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition.create(CpsScmFlowDefinition.java:144)
+	at org.jenkinsci.plugins.workflow.multibranch.SCMBinder.create(SCMBinder.java:120)
+	at org.jenkinsci.plugins.workflow.job.WorkflowRun.run(WorkflowRun.java:302)
+	at hudson.model.ResourceController.execute(ResourceController.java:97)
+	at hudson.model.Executor.run(Executor.java:429)
+ERROR: Error cloning remote repo 'origin'
+ERROR: Maximum checkout retry attempts reached, aborting
+Finished: FAILURE
